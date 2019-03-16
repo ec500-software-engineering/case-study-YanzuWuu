@@ -5,6 +5,8 @@ Technology and Platform used for development
 What coding languages are used? Do you think the same languages would be used if the project was started today? What languages would you use for the project if starting it today?
 What build system is used (e.g. Bazel, CMake, Meson)? What build tools / environment are needed to build (e.g. does it require Visual Studio or just GCC or ?)
 What frameworks / libraries are used in the project? At least one of these projects don’t use any external libraries or explicit threading, yet is noted for being the fastest in its category--in that case, what intrinsic language techniques is it using to get this speed.
+
+Answer:
 a. Scikit-learn is a package written by python and also used on python. Some core algorithm are written in Cython. As a ML-package, comparing with tensorflow, Scikit-learn mainly focuses on help users process data by their own, such as selecting features, compressing dimensions, and converting formats. 
 
 Python is the most popular language used in machine learning field, and as python’s exclusive package, if Scikit-learn is built today, it will also use python. Also, I’d like to use python too, because it has a lot of convenient third-party libraries of mathematical operations and Structured data manipulation, such as with NumPy, SciPy, Pandas.
@@ -18,6 +20,8 @@ Testing: describe unit/integration/module tests and the test framework
 How are they ensuring the testing is meaningful? Do they have code coverage metrics for example?
 What CI platform(s) are they using (e.g. Travis-CI, AppVeyor)?
 What computing platform combinations are tested on their CI? E.g. Windows 10, Cygwin, Linux, Mac, GCC, Clang
+
+Answer:
 a. They use codecov to test the code coverage metrics.
 
 
@@ -32,6 +36,7 @@ Please make diagrams as appropriate for your explanation
 How are separation of concerns and information hiding handled?
 What architectural patterns are used
 Does the project lean more towards object oriented or functional components
+Answer:
 a.  Before wanting to add a new algorithm, which is usually a major and lengthy undertaking, we ought to start with “Know issue” on their github, in case some change may already have solutions. And they have some issue tags for the beginner to get familiar with contribution. Some “help wanted” issues also need contributors to solve.
 
 Any sort of documentation is ok if we want to make some change, and we have to generate a HTML output by typing make html from the doc/ directory.When you change the documentation in a pull request, CircleCI automatically builds it. Also, use pytest package to test the units.
@@ -50,62 +55,22 @@ f. Yes, the Scikit-learn can be divided into six components: Classification, reg
 
 
 
- Analyze two defects in the project--e.g. open GitHub issue, support request tickets or feature request for the project
+ Analyze two defects in the project
+ -------
+ --e.g. open GitHub issue, support request tickets or feature request for the project
 Does the issue require an architecture change, or is it just adding a new function or?
  make a patch / pull request for the project to fix problem / add feature
+ 
 a. It depends on the issue type, I think most issues don’t have to change the architecture change.
 
 b. It’s hard to give a change or a optimization by yourself, because you have to communicate with others in the issue page on github first and may find someone to correct the bug or do some optimization. The team is fixed by the way. And one good side is you can train yourself from some easy issues proposed by others and correct them. 
 
  Making a demonstration application of the system, your own application showing how the software is used
+ -------
 Using Scikit-learn to do some data preprocessing （standardization）and seperate data, then do the logistic regression and create a classification report of prediction.
 
-import pandas as pd
-import numpy as np
-from sklearn.datasets import load_iris
-from sklearn.preprocessing import StandardScaler
+The code is updated on the github.
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import ShuffleSplit
-from sklearn.metrics import classification_report
-####### from sklearn.metrics import roc_auc_score
-
-dataSet = load_iris()
-data = dataSet['data'] # data
-label = dataSet['target'] # data's lable
-feature = dataSet['feature_names'] # feature's name
-target = dataSet['target_names'] # name of the lable
-print(target)
-pd.set_option('display.max_columns', None)
-df = pd.DataFrame(np.column_stack((data,label)),columns = np.append(feature,'label'))
-print(df.head())# check the top 5 row
-
-print(df.isnull().sum(axis=0).sort_values(ascending=False)/float(len(df)))# see the rate of missed value
-
-####### In sklearn's preprocessing, there is a function Imputer() to handle missing values.
-####### It provides median, mean, and mode to fill in missing values.
-####### Fortunately, there are no missing values ​​in our data set.
-
-print(df['label'].value_counts()) # check the rate of each lable
-
-StandardScaler().fit_transform(data)   # z score standard
-
-####### use OvR doing multiple logistic regression
-ss = ShuffleSplit(n_splits = 1,test_size= 0.2) # seperate the dataset, 80% as training set
-for tr,te in ss.split(data,label):
-   xr = data[tr]
-   xe = data[te]
-   yr = label[tr]
-   ye = label[te]
-   clf = LogisticRegression(solver = 'lbfgs',multi_class = 'multinomial')
-   clf.fit(xr,yr)
-   predict = clf.predict(xe)
-   print(classification_report(ye, predict))
-####### OvR regards multiple logistic regression as a binary logistic regression.
-####### The specific method is to select one class as a positive example each time,
-####### and the other categories as a negative case, and then do binary logistic regression
-####### to obtain the classification model of the class. Finally, multiple binary regression models are derived.
-####### The classification results are obtained according to the scores of each category.
 
 
 
