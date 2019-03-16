@@ -1,6 +1,7 @@
-![logo](logo.png)
 Case studies on Scikit-learn
 ====
+![logo](logo.png)
+
 Technology and Platform used for development
 ----
 What coding languages are used? 
