@@ -1,5 +1,8 @@
+
 Case studies on Scikit-learn
 ====
+![logo](logo.png)
+
 Technology and Platform used for development
 ----
 What coding languages are used? 
@@ -32,11 +35,14 @@ What computing platform combinations are tested on their CI? E.g. Windows 10, Cy
 Answer:
 
 a. They use codecov to test the code coverage metrics.
-
+![codecov1](codecov1.png)
+![codecov2](codecov2.png)
 
 b.  They use Travis-CI to test the units.
+![travis](travis.png)
 
 c.  Linux environment is tested on Travis-CI.
+![linux_enviro](linux_enviro.png)
 
 Software architecture in your own words
 -----
@@ -63,6 +69,7 @@ Users can use Scikit-learn as a data process tool, which means it can be used as
 b. Emm, we use it only when we call some specific functions.
 
 c. The diagram below is a classic diagram of scikit-learn structure of different function branches.
+![sklearn_diagram](sklearn_diagram.png)
 
 
 d. In the github, they make a great readme and seperate different part in different folder. And in the user guide, they give a lot of link from one question to another possible question you may come out, which is very clearly. (if this is the point of the problem d)
