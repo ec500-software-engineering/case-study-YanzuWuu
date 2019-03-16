@@ -104,6 +104,9 @@ And the result is as followed:
 
 Reference:
 ------
+Scikit-learn github:
+https://github.com/scikit-learn/scikit-learn
+
 Scikit-learn user guide:
 https://scikit-learn.org/0.20/_downloads/scikit-learn-docs.pdf
 
