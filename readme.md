@@ -98,6 +98,8 @@ I used Scikit-learn to do some data preprocessing （standardization）and seper
 
 The code is updated on the github.
 
+And the result is as followed:
+![result](result.png)
 
 
 Reference:
