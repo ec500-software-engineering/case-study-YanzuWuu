@@ -2,11 +2,17 @@ Case studies on Scikit-learn
 ====
 Technology and Platform used for development
 ----
-What coding languages are used? Do you think the same languages would be used if the project was started today? What languages would you use for the project if starting it today?
-What build system is used (e.g. Bazel, CMake, Meson)? What build tools / environment are needed to build (e.g. does it require Visual Studio or just GCC or ?)
+What coding languages are used? 
+Do you think the same languages would be used if the project was started today? 
+What languages would you use for the project if starting it today?
+
+What build system is used (e.g. Bazel, CMake, Meson)? 
+What build tools / environment are needed to build (e.g. does it require Visual Studio or just GCC or ?)
+
 What frameworks / libraries are used in the project? At least one of these projects don’t use any external libraries or explicit threading, yet is noted for being the fastest in its category--in that case, what intrinsic language techniques is it using to get this speed.
 
 Answer:
+
 a. Scikit-learn is a package written by python and also used on python. Some core algorithm are written in Cython. As a ML-package, comparing with tensorflow, Scikit-learn mainly focuses on help users process data by their own, such as selecting features, compressing dimensions, and converting formats. 
 
 Python is the most popular language used in machine learning field, and as python’s exclusive package, if Scikit-learn is built today, it will also use python. Also, I’d like to use python too, because it has a lot of convenient third-party libraries of mathematical operations and Structured data manipulation, such as with NumPy, SciPy, Pandas.
@@ -18,25 +24,36 @@ c. Scikit-learn’s algorithm library is built on top of SciPy (an open source P
 Testing: describe unit/integration/module tests and the test framework
 ----
 How are they ensuring the testing is meaningful? Do they have code coverage metrics for example?
+
 What CI platform(s) are they using (e.g. Travis-CI, AppVeyor)?
+
 What computing platform combinations are tested on their CI? E.g. Windows 10, Cygwin, Linux, Mac, GCC, Clang
 
 Answer:
+
 a. They use codecov to test the code coverage metrics.
 
 
 b.  They use Travis-CI to test the units.
+
 c.  Linux environment is tested on Travis-CI.
 
 Software architecture in your own words
 -----
 Including:How would you add / edit functionality if you wanted to? How would one use this project from external projects, or is it only usable as a standalone program?
+
 What parts of the software are asynchronous (if any)?
+
 Please make diagrams as appropriate for your explanation
+
 How are separation of concerns and information hiding handled?
-What architectural patterns are used
+
+What architectural patterns are used？
+
 Does the project lean more towards object oriented or functional components
+
 Answer:
+
 a.  Before wanting to add a new algorithm, which is usually a major and lengthy undertaking, we ought to start with “Know issue” on their github, in case some change may already have solutions. And they have some issue tags for the beginner to get familiar with contribution. Some “help wanted” issues also need contributors to solve.
 
 Any sort of documentation is ok if we want to make some change, and we have to generate a HTML output by typing make html from the doc/ directory.When you change the documentation in a pull request, CircleCI automatically builds it. Also, use pytest package to test the units.
@@ -44,6 +61,7 @@ Any sort of documentation is ok if we want to make some change, and we have to g
 Users can use Scikit-learn as a data process tool, which means it can be used as many single part or functions.
 
 b. Emm, we use it only when we call some specific functions.
+
 c. The diagram below is a classic diagram of scikit-learn structure of different function branches.
 
 
@@ -58,7 +76,9 @@ f. Yes, the Scikit-learn can be divided into six components: Classification, reg
  Analyze two defects in the project
  -------
  --e.g. open GitHub issue, support request tickets or feature request for the project
-Does the issue require an architecture change, or is it just adding a new function or?
+ 
+ Does the issue require an architecture change, or is it just adding a new function or?
+ 
  make a patch / pull request for the project to fix problem / add feature
  
 a. It depends on the issue type, I think most issues don’t have to change the architecture change.
@@ -67,11 +87,10 @@ b. It’s hard to give a change or a optimization by yourself, because you have 
 
  Making a demonstration application of the system, your own application showing how the software is used
  -------
-Using Scikit-learn to do some data preprocessing （standardization）and seperate data, then do the logistic regression and create a classification report of prediction.
+ 
+I used Scikit-learn to do some data preprocessing （standardization）and seperate data, then do the logistic regression and create a classification report of prediction.
 
 The code is updated on the github.
-
-
 
 
 
